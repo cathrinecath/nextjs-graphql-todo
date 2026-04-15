@@ -2,7 +2,7 @@
 
 A clean, minimal checklist app built with Next.js 16, TypeScript, GraphQL, and Apollo Client. Add tasks, toggle completion, filter by status, and delete — all with optimistic UI updates.
 
-**Live demo:** [nestlist.vercel.app](https://nestlist.vercel.app)
+**Live demo:** [nextjs-graphql-todo.vercel.app](https://nextjs-graphql-todo.vercel.app)
 
 ---
 
