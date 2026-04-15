@@ -1,14 +1,22 @@
-import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import "./globals.css";
-import ApolloClientProvider from "@/providers/ApolloProvider";
+import type { Metadata } from 'next'
+import { Geist } from 'next/font/google'
+import './globals.css'
+import ApolloClientProvider from '@/providers/ApolloProvider'
 
-const geist = Geist({ subsets: ["latin"] });
+const geist = Geist({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Todo App",
-  description: "JAMstack todo app with Next.js, GraphQL, and Apollo Client",
-};
+  title: {
+    default: 'NestList — Your Personal Checklist',
+    template: '%s | NestList',
+  },
+  description: 'A clean, simple checklist app to keep your tasks organised.',
+  openGraph: {
+    title: 'NestList — Your Personal Checklist',
+    description: 'A clean, simple checklist app to keep your tasks organised.',
+    type: 'website',
+  },
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,5 +25,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ApolloClientProvider>{children}</ApolloClientProvider>
       </body>
     </html>
-  );
+  )
 }

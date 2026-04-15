@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
-let client: ApolloClient<object> | null = null;
+let client: ApolloClient | null = null;
 
 function createApolloClient() {
   return new ApolloClient({

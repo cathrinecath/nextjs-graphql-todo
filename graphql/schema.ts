@@ -1,5 +1,5 @@
-import { Todo } from "@/types/todo";
-import { rawBackendTodos, RawTodo } from "@/mock/rawBackend";
+import { Todo } from '@/types/todo'
+import { rawBackendTodos, RawTodo } from '@/mock/rawBackend'
 
 function normalize(raw: RawTodo): Todo {
   return {
@@ -7,10 +7,10 @@ function normalize(raw: RawTodo): Todo {
     text: raw.ToDo_Text,
     completed: raw.is_done,
     createdAt: raw.meta.created_at,
-  };
+  }
 }
 
-let todos: Todo[] = rawBackendTodos.map(normalize);
+let todos: Todo[] = rawBackendTodos.map(normalize)
 
 export const typeDefs = `#graphql
   type Todo {
@@ -27,8 +27,9 @@ export const typeDefs = `#graphql
   type Mutation {
     addTodo(text: String!): Todo!
     toggleTodo(id: ID!): Todo!
+    deleteTodo(id: ID!): ID!
   }
-`;
+`
 
 export const resolvers = {
   Query: {
@@ -41,15 +42,19 @@ export const resolvers = {
         text,
         completed: false,
         createdAt: new Date().toISOString(),
-      };
-      todos = [...todos, newTodo];
-      return newTodo;
+      }
+      todos = [...todos, newTodo]
+      return newTodo
     },
     toggleTodo: (_: unknown, { id }: { id: string }): Todo => {
-      const todo = todos.find((t) => t.id === id);
-      if (!todo) throw new Error(`Todo ${id} not found`);
-      todos = todos.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t));
-      return todos.find((t) => t.id === id)!;
+      const todo = todos.find((t) => t.id === id)
+      if (!todo) throw new Error(`Todo ${id} not found`)
+      todos = todos.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
+      return todos.find((t) => t.id === id)!
+    },
+    deleteTodo: (_: unknown, { id }: { id: string }): string => {
+      todos = todos.filter((t) => t.id !== id)
+      return id
     },
   },
-};
+}
