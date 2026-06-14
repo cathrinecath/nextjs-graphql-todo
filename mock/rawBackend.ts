@@ -1,7 +1,7 @@
 export const rawBackendTodos = [
   {
     todo_ID: "raw-1",
-    ToDo_Text: "Review pull requests",
+    ToDo_Text: "Water the plants 🌱",
     is_done: false,
     priority_lvl: 1,
     assigned_usr: "john_doe",
@@ -9,7 +9,7 @@ export const rawBackendTodos = [
   },
   {
     todo_ID: "raw-2",
-    ToDo_Text: "Update project documentation",
+    ToDo_Text: "Call a friend back ☎️",
     is_done: true,
     priority_lvl: 3,
     assigned_usr: "jane_smith",
@@ -17,7 +17,7 @@ export const rawBackendTodos = [
   },
   {
     todo_ID: "raw-3",
-    ToDo_Text: "Deploy to staging",
+    ToDo_Text: "Take a short walk ☀️",
     is_done: false,
     priority_lvl: 2,
     assigned_usr: "john_doe",
